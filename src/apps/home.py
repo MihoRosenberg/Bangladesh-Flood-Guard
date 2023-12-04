@@ -24,9 +24,9 @@ The aftermath of flooding in Bangladesh results in immediate and long-term chall
 """)
 
 # Load the datasets
-forecast = pd.read_csv('https://github.com/MihoRosenberg/Bangladesh-Flood-Guard/blob/main/src/apps/predicted_precipitation.csv')
+forecast = pd.read_csv('https://raw.githubusercontent.com/MihoRosenberg/Bangladesh-Flood-Guard/main/src/apps/predicted_precipitation.csv')
 forecast['datetime'] = pd.to_datetime(forecast['datetime']).dt.date
-actual = pd.read_csv("https://github.com/MihoRosenberg/Bangladesh-Flood-Guard/blob/main/src/apps/validation.csv")
+actual = pd.read_csv("https://raw.githubusercontent.com/MihoRosenberg/Bangladesh-Flood-Guard/main/src/apps/validation.csv")
 
 default_date = datetime.date(2023, 8, 17)
 date = st.date_input("Please select a date between 2022 Jan 1 and 2023 Aug 17 to see the precipitation forecast:", default_date)
