@@ -31,7 +31,7 @@ bangladesh_image = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitatio
 
 st.header("Flood Guard - Bangladesh Central Regions (Dhaka, Khulna, Mymensingh, and Narayanganj)")
 
-st.image()
+st.image(bangladesh_image)
     
 st.write("""
     Bangladesh is a country in South Asia that is known for its rich natural beauty and biodiversity. 
@@ -132,13 +132,13 @@ def plot_actual_forecast(forecast, actual, target_variable_1, target_variable_2)
 
 # Main function to display the web app UI  
 def main(): 
-    # # Load the model
-    model = load_model(MODEL_FILE)
-
     # # Load datasets
     actual = load_data(ACTUAL_DATASET, DATE_COLS)
     validation = load_data(VALIDATION_DATASET, DATE_COLS)
     forecast = load_data(FORECAST_DATASET, DATE_COLS)
+
+    # # Load the model
+    model = load_model(MODEL_FILE)
 
     start_end_date = get_date_range(validation)
 
