@@ -32,7 +32,7 @@ bangladesh_image = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
 st.header("Flood Guard - Bangladesh Central Regions (Dhaka, Khulna, Mymensingh, and Narayanganj)")
 
 st.image(bangladesh_image)
-    
+st.write(working_dir)  
 st.write("""
     Bangladesh is a country in South Asia that is known for its rich natural beauty and biodiversity. 
     It has the world's largest delta, formed by the confluence of the Ganges, Brahmaputra and Meghna rivers, which supports a variety of ecosystems and wildlife. 
