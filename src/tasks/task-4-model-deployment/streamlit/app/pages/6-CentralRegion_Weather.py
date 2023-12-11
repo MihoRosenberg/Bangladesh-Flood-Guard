@@ -11,28 +11,12 @@ import plotly.graph_objs as go
 
 # streamlit run src\apps\6-CentralRegion_Weather.py
 
-DATE_COLS = 'datetime'
-TARGET_VARIABLE_1 = 'precip'
-TARGET_VARIABLE_2 = 'predicted_precip'
-
-# Set up directories
-# working_dir = os.getcwd()
-working_dir = os.path.dirname(os.path.realpath(__file__))
-app_dir = os.path.dirname(working_dir)
-ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
-
-MODEL_FILE = os.path.join(ARTIFACTORY_DIR, 'randomforest_central_model.pkl')
-
-ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
-VALIDATION_DATASET = os.path.join(ARTIFACTORY_DIR, "central_validation.csv")
-FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
-
-bangladesh_image = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
+# bangladesh_image = os.path.join(ARTIFACTORY_DIR, "/mount/src/bangladesh-flood-guard/src/tasks/task-4-model-deployment/streamlit/app/artifactory/bangladesh_map.jpg")
 
 st.header("**Flood Guard - Bangladesh Central Regions** (Dhaka, Khulna, Mymensingh, and Narayanganj)")
 
-st.image(bangladesh_image)
-st.write(working_dir)  
+st.image("/mount/src/bangladesh-flood-guard/src/tasks/task-4-model-deployment/streamlit/app/artifactory/bangladesh_map.jpg")
+
 st.write("""
     Bangladesh is a country in South Asia that is known for its rich natural beauty and biodiversity. 
     It has the world's largest delta, formed by the confluence of the Ganges, Brahmaputra and Meghna rivers, which supports a variety of ecosystems and wildlife. 
@@ -132,6 +116,21 @@ def plot_actual_forecast(forecast, actual, target_variable_1, target_variable_2)
 
 # Main function to display the web app UI  
 def main(): 
+    DATE_COLS = 'datetime'
+    TARGET_VARIABLE_1 = 'precip'
+    TARGET_VARIABLE_2 = 'predicted_precip'
+    
+    # Set up directories
+    working_dir = os.path.dirname(os.path.realpath(__file__))
+    app_dir = os.path.dirname(working_dir)
+    ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
+    
+    MODEL_FILE = os.path.join(ARTIFACTORY_DIR, 'randomforest_central_model.pkl')
+    
+    ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
+    VALIDATION_DATASET = os.path.join(ARTIFACTORY_DIR, "central_validation.csv")
+    FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
+
     # # Load datasets
     actual = load_data(ACTUAL_DATASET, DATE_COLS)
     validation = load_data(VALIDATION_DATASET, DATE_COLS)
