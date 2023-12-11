@@ -9,31 +9,50 @@ import plotly.express as px
 import plotly.graph_objs as go
 # from keras.models import load_model
 
-# streamlit run src\apps\home.py 
+# streamlit run src\apps\6-CentralRegion_Weather.py
 
-def display_header():
-    st.header("Flood Guard - Bangladesh Central Regions (Dhaka, Khulna, Mymensingh, and Narayanganj)")
+DATE_COLS = 'datetime'
+TARGET_VARIABLE_1 = 'precip'
+TARGET_VARIABLE_2 = 'predicted_precip'
 
-    st.write("""
+# Set up directories
+# working_dir = os.getcwd()
+working_dir = os.path.dirname(os.path.realpath(__file__))
+app_dir = os.path.dirname(working_dir)
+ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
+
+MODEL_FILE = os.path.join(ARTIFACTORY_DIR, 'randomforest_central_model.pkl')
+
+ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
+VALIDATION_DATASET = os.path.join(ARTIFACTORY_DIR, "central_validation.csv")
+FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
+
+bangladesh_image = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
+
+st.header("Flood Guard - Bangladesh Central Regions (Dhaka, Khulna, Mymensingh, and Narayanganj)")
+
+st.image()
+    
+st.write("""
     Bangladesh is a country in South Asia that is known for its rich natural beauty and biodiversity. 
     It has the world's largest delta, formed by the confluence of the Ganges, Brahmaputra and Meghna rivers, which supports a variety of ecosystems and wildlife. 
     Bangladesh also faces the challenge of frequent floods, which affect millions of people every year and cause damage to crops, infrastructure and livelihoods.
     The project aims to predict precipitation and prevent or reduce damage.
     """)
 
-    st.write("""
+st.write("""
     <B>Problem Statement:</B>
     The aftermath of flooding in Bangladesh results in immediate and long-term challenges, including loss of lives, destruction of crops, damage to infrastructure, and displacement of communities. 
             Timely and accurate flood prediction and waterbody forecasting are crucial for reducing the impact of floods, enabling better disaster preparedness, and facilitating effective resource allocation.
     """)
 
-    st.write("""
+st.write("""
     <B>Model Overview:</B>
     The study predicts the daily average precipitation for four divisions in Bangladesh- Dhaka, Khulna, Mymensingh, and Narayanganj- using RandomForest Regressor.
     The model’s performance was evaluated with the R2 score: 0.71, mean squared error: 19.50, and mean absolute error: 2.33.
     """)
 
-    st.write("""
+st.write("""
     <B>Further Consideration: </B>
     A possible way to reduce the negative effects and prevent further harm is to use a real-time prediction mechanism. 
     This would allow for timely and accurate responses to the situation. To achieve this, an automated end-to-end ML pipeline is suggested. The pipeline would collect data through API, transform it into a suitable format, and deliver a near real-time prediction.
@@ -113,24 +132,6 @@ def plot_actual_forecast(forecast, actual, target_variable_1, target_variable_2)
 
 # Main function to display the web app UI  
 def main(): 
-    DATE_COLS = 'datetime'
-    TARGET_VARIABLE_1 = 'precip'
-    TARGET_VARIABLE_2 = 'predicted_precip'
-
-    # Set up directories
-    # working_dir = os.getcwd()
-    working_dir = os.path.dirname(os.path.realpath(__file__))
-    app_dir = os.path.dirname(working_dir)
-    ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
-
-    MODEL_FILE = os.path.join(ARTIFACTORY_DIR, 'randomforest_central_model.pkl')
-
-    ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "central_actual.csv")
-    VALIDATION_DATASET = os.path.join(ARTIFACTORY_DIR, "central_validation.csv")
-    FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
-
-    display_header()
-
     # # Load the model
     model = load_model(MODEL_FILE)
 
