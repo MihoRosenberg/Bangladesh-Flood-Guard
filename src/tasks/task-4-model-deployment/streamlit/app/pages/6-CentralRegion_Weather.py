@@ -124,7 +124,9 @@ def main():
     working_dir = os.path.dirname(os.path.realpath(__file__))
     app_dir = os.path.dirname(working_dir)
     ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
-    
+    st.write(working_dir)
+    st.write(app_dir)
+    st.write(ARTIFACTORY_DIR)
     MODEL_FILE = os.path.join(ARTIFACTORY_DIR, 'randomforest_central_model.pkl')
     
     ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
