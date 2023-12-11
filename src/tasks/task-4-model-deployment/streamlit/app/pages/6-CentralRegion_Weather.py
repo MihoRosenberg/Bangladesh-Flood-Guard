@@ -106,7 +106,8 @@ def main():
     TARGET_VARIABLE_2 = 'predicted_precip'
 
     # Set up directories
-    working_dir = os.getcwd()
+    # working_dir = os.getcwd()
+    working_dir = os.path.dirname(os.path.realpath(__file__))
     app_dir = os.path.dirname(working_dir)
     ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
 
