@@ -27,7 +27,7 @@ ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
 VALIDATION_DATASET = os.path.join(ARTIFACTORY_DIR, "central_validation.csv")
 FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
 
-bangladesh_image = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
+bangladesh_image = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
 
 st.header("Flood Guard - Bangladesh Central Regions (Dhaka, Khulna, Mymensingh, and Narayanganj)")
 
