@@ -29,7 +29,7 @@ FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitatio
 
 bangladesh_image = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
 
-st.header("Flood Guard - Bangladesh Central Regions (Dhaka, Khulna, Mymensingh, and Narayanganj)")
+st.header("**Flood Guard - Bangladesh Central Regions** (Dhaka, Khulna, Mymensingh, and Narayanganj)")
 
 st.image(bangladesh_image)
 st.write(working_dir)  
@@ -41,19 +41,19 @@ st.write("""
     """)
 
 st.write("""
-    Problem Statement:
+    **Problem Statement:**
     The aftermath of flooding in Bangladesh results in immediate and long-term challenges, including loss of lives, destruction of crops, damage to infrastructure, and displacement of communities. 
             Timely and accurate flood prediction and waterbody forecasting are crucial for reducing the impact of floods, enabling better disaster preparedness, and facilitating effective resource allocation.
     """)
 
 st.write("""
-    Model Overview:
+    **Model Overview:**
     The study predicts the daily average precipitation for four divisions in Bangladesh- Dhaka, Khulna, Mymensingh, and Narayanganj- using RandomForest Regressor.
     The model’s performance was evaluated with the R2 score: 0.71, mean squared error: 19.50, and mean absolute error: 2.33.
     """)
 
 st.write("""
-    Further Consideration:
+    **Further Consideration:**
     A possible way to reduce the negative effects and prevent further harm is to use a real-time prediction mechanism. 
     This would allow for timely and accurate responses to the situation. To achieve this, an automated end-to-end ML pipeline is suggested. The pipeline would collect data through API, transform it into a suitable format, and deliver a near real-time prediction.
     """)
