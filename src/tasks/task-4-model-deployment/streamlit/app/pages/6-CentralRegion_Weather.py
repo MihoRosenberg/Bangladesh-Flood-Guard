@@ -129,7 +129,7 @@ def main():
     st.write(ARTIFACTORY_DIR)
     MODEL_FILE = os.path.join(ARTIFACTORY_DIR, 'randomforest_central_model.pkl')
     
-    ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "bangladesh_map.jpg")
+    ACTUAL_DATASET = os.path.join(ARTIFACTORY_DIR, "central_actual.csv")
     VALIDATION_DATASET = os.path.join(ARTIFACTORY_DIR, "central_validation.csv")
     FORECAST_DATASET = os.path.join(ARTIFACTORY_DIR, "central_predicted_precipitation.csv")
 
