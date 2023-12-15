@@ -19,8 +19,9 @@ working_dir = os.path.dirname(os.path.realpath(__file__))
 app_dir = os.path.dirname(working_dir)
 ARTIFACTORY_DIR = os.path.join(app_dir, 'artifactory')
 bangladesh_map = os.path.join(ARTIFACTORY_DIR, 'bangladesh_map.jpg')
-st.image(bangladesh_map)
 st.write(bangladesh_map)
+st.image(bangladesh_map)
+
 st.write("""
     Bangladesh is a country in South Asia that is known for its rich natural beauty and biodiversity. 
     It has the world's largest delta, formed by the confluence of the Ganges, Brahmaputra and Meghna rivers, which supports a variety of ecosystems and wildlife. 
